@@ -1,0 +1,53 @@
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: pkc-ywpyj.us-east-1.aws.confluent.cloud:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      retries: 3
+      batch-size: 16384
+      buffer-memory: 33554432
+    consumer:
+      topic-name: use1subhash-test-topic
+      bootstrap-servers: pkc-ywpyj.us-east-1.aws.confluent.cloud:9092
+      properties:
+        security.protocol: SASL_SSL
+        sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='RYXLRIJCFMVDBRRX' password='uOy+wK4fsNwWIQHXRlrTKBVLetRgWg4R9nkHUlNkQHFmBPpzgoaMRjz9CVcRtoY/';
+        sasl.mechanism: PLAIN
+
+    properties:
+      bootstrap.servers: pkc-ywpyj.us-east-1.aws.confluent.cloud:9092
+      security.protocol: SASL_SSL
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='RYXLRIJCFMVDBRRX' password='uOy+wK4fsNwWIQHXRlrTKBVLetRgWg4R9nkHUlNkQHFmBPpzgoaMRjz9CVcRtoY/';
+      sasl.mechanism: PLAIN
+
+logging:
+  level:
+    org.springframework: WARN
+    org.springdoc: WARN
+    com.github.xiaoymin: WARN
+
+#    org.apache.kafka: INFO
+#    org.apache.kafka.clients: INFO
+#    org.apache.kafka.clients.consumer: INFO
+#    org.apache.kafka.clients.producer: INFO
+#    org.springframework.kafka: INFO
+
+#Swagger
+knife4j:
+  basic:
+    enable: false
+    production: false
+    document:
+      title: Kafka Producer and Consumer
+
+  enable: true
+  production: false
+  setting:
+    language: en
+    enable-footer: false
+    enable-header: false
+
+server:
+  port: 8088

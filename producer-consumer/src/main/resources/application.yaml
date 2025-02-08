@@ -1,0 +1,52 @@
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: pkc-5dpq2.us-east-1.aws.confluent.cloud:9092 #int bootstrap
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+      retries: 3
+      batch-size: 16384
+      buffer-memory: 33554432
+    consumer:
+      #bootstrap-servers: pkc-5dpq2.us-east-1.aws.confluent.cloud:9092 #int bootstrap
+      bootstrap-servers:
+      properties:
+        security.protocol: SASL_SSL
+        #int sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='QS7BHYT7BXMCSPTC' password='0ai3WTuiizyNWyo0hdQqWIONeUfam+p7gPIP/LW7AleZgVYzJjzVwTSYxw3Dq6pd';
+        sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='QS7BHYT7BXMCSPTC' password='0ai3WTuiizyNWyo0hdQqWIONeUfam+p7gPIP/LW7AleZgVYzJjzVwTSYxw3Dq6pd';
+        sasl.mechanism: PLAIN
+
+    properties:
+      bootstrap.servers: pkc-5dpq2.us-east-1.aws.confluent.cloud:9092
+      security.protocol: SASL_SSL
+      sasl.jaas.config: org.apache.kafka.common.security.plain.PlainLoginModule required username='QS7BHYT7BXMCSPTC' password='0ai3WTuiizyNWyo0hdQqWIONeUfam+p7gPIP/LW7AleZgVYzJjzVwTSYxw3Dq6pd';
+      sasl.mechanism: PLAIN
+
+logging:
+  level:
+    org.springframework: WARN
+    org.springdoc: WARN
+    com.github.xiaoymin: WARN
+
+#    org.apache.kafka: INFO
+#    org.apache.kafka.clients: INFO
+#    org.apache.kafka.clients.consumer: INFO
+#    org.apache.kafka.clients.producer: INFO
+#    org.springframework.kafka: INFO
+
+#Swagger
+knife4j:
+  basic:
+    enable: false
+    production: false
+    document:
+      title: Kafka Producer and Consumer
+
+  enable: true
+  production: false
+  setting:
+    language: en
+    enable-footer: false
+    enable-header: false
+
